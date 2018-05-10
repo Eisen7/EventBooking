@@ -11,6 +11,11 @@
     <title>$Title$</title>
   </head>
   <body>
+  <%
+    String login = "/loginAndSignUp/Login.html";
+//    request.getRequestDispatcher(login).forward(request, response);
+    response.sendRedirect(login);
+  %>
   $END$
   </body>
 </html>

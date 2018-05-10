@@ -8,13 +8,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @org.springframework.stereotype.Controller
 public class Controller {
 
-    @RequestMapping("/test")
+    @RequestMapping("/login")
     @ResponseBody
-    public Object test(String s) {
-        if (StringUtils.isEmpty(s)) {
-            s = "傻子超";
-        }
-        return s;
+    public String login(String userName, String password) {
+        System.out.println(userName + password);
+        return null;
     }
 
 }
