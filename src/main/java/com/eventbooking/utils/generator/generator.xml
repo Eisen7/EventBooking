@@ -3,28 +3,38 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
-<!--修改 targetProject 为自己的项目地址 所有的mapper 和 model 共用  mapper 接口类容易被覆盖，自动生成前先提交自己的接口，覆盖后再回退吧-->
-
 <generatorConfiguration>
-  <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+    <classPathEntry
+            location="D:\IdeaProjects\EventBooking\src\main\java\com\eventbooking\utils\generator\mysql-connector-java-5.1.46.jar"/>
 
-    <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-      <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
-      <!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
-      <property name="caseSensitive" value="false"/>
-    </plugin>
+    <context id="eventbooking" targetRuntime="MyBatis3Simple" defaultModelType="flat">
 
-   <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"  connectionURL="jdbc:oracle:thin:@22.188.192.162:1521:oraMLIF1"  userId="motion"  password="motion">  </jdbcConnection>
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
 
-    <javaModelGenerator targetPackage="com.eventbooking.utils.generator.model" targetProject="D:\IdeaProjects\EventBooking\src\main\java"/>
 
-    <sqlMapGenerator targetPackage="com.eventbooking.utils.generator.mapper"  targetProject="D:\IdeaProjects\EventBooking\src\main\java"/>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/eventbooking"
+                        userId="eventbooking"
+                        password="eventbooking">
+        </jdbcConnection>
 
-    <javaClientGenerator targetPackage="com.eventbooking.utils.generator.mapper" targetProject="D:\IdeaProjects\EventBooking\src\main\java" type="XMLMAPPER" />
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
 
-   <!--  <table tableName="d_user_info" >  </table> 
-    <table tableName="d_sql_config">  </table>  -->
-    <table tableName="D_APPLE_PAY_INFO">  </table>
-    <!--  <table tableName="d_sms_config">  </table> -->
-   </context>
+        <javaModelGenerator targetPackage="com.eventbooking.utils.generator.model"
+                            targetProject="D:\IdeaProjects\EventBooking\src\main\java"/>
+
+        <sqlMapGenerator targetPackage="com.eventbooking.utils.generator.mapper"
+                         targetProject="D:\IdeaProjects\EventBooking\src\main\java"/>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.eventbooking.utils.generator.mapper"
+                             targetProject="D:\IdeaProjects\EventBooking\src\main\java"/>
+
+        <table tableName="table_name" />
+
+    </context>
 </generatorConfiguration>
