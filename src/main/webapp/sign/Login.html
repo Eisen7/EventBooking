@@ -16,25 +16,25 @@
 
     <!-- Custom styles for this template -->
     <link href="css/sign.css" rel="stylesheet">
-    <script type="text/javascript" src="../resources/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../resources/jquery-3.3.1.js"></script>
     <script type="text/javascript">
-        // $(document).ready(function () {
-        //     $("#loginButton").click(
-        //
-        //     );
-        // });
 
         function login() {
+
             $.ajax({
-                url: "/test.do",
+                url: "/login.do",
                 type: "POST",
-                // dataType: "text",
-                data: $("#loginForm").serialize(),
+                dataType: "json",
+                data: $('#loginForm').serialize(),
                 success: function (data) {
-                    alert(data);
+                    alert(data.data);
+                    if (data.state === 0) {
+                        window.location.href = "/event.do";
+                    }
                 }
             })
         }
+
     </script>
 </head>
 
@@ -42,10 +42,10 @@
 <form class="form-signin" id="loginForm">
     <img class="mb-4" src="../resources/bootstrap-solid.svg" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Event-Booking Login</h1>
-    <input type="text" id="userName" class="form-control" placeholder="Username or email address" required=""
+    <input type="text" id="username" name="username" class="form-control" placeholder="Username" required=""
            autofocus="">
     <label for="password" class="sr-only">Password</label>
-    <input type="password" id="password" class="form-control" placeholder="Password" required="">
+    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
     <div class="mb-3" style="display: inline">New to Event-Booking?</div>
     <div class="btn-link mb-3" style="display: inline">
         <label>
@@ -53,7 +53,7 @@
         </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="button" id="loginButton" onclick="login()">Login</button>
-    <p class="mt-5 mb-3 text-muted">© 2018 by Eisen</p>
+    <p class="mt-5 mb-3 text-muted">© 2018 By SilkRoad</p>
 </form>
 </body>
 </html>
