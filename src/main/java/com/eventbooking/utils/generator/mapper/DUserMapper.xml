@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eventbooking.utils.generator.mapper.DUserMapper">
+  <resultMap id="BaseResultMap" type="com.eventbooking.utils.generator.model.DUser">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="last_login_date" jdbcType="DATE" property="lastLoginDate" />
+    <result column="login_count" jdbcType="INTEGER" property="loginCount" />
+    <result column="user_group_id" jdbcType="BIGINT" property="userGroupId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from d_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.eventbooking.utils.generator.model.DUser">
+    insert into d_user (id, username, password, 
+      email, mobile_phone, address, 
+      last_login_date, login_count, user_group_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{lastLoginDate,jdbcType=DATE}, #{loginCount,jdbcType=INTEGER}, #{userGroupId,jdbcType=BIGINT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.eventbooking.utils.generator.model.DUser">
+    update d_user
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      last_login_date = #{lastLoginDate,jdbcType=DATE},
+      login_count = #{loginCount,jdbcType=INTEGER},
+      user_group_id = #{userGroupId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, username, password, email, mobile_phone, address, last_login_date, login_count, 
+    user_group_id
+    from d_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, username, password, email, mobile_phone, address, last_login_date, login_count, 
+    user_group_id
+    from d_user
+  </select>
+</mapper>

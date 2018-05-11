@@ -34,7 +34,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.eventbooking.utils.generator.mapper"
                              targetProject="D:\IdeaProjects\EventBooking\src\main\java"/>
 
-        <table tableName="table_name" />
+        <table tableName="d_user" />
 
     </context>
 </generatorConfiguration>
