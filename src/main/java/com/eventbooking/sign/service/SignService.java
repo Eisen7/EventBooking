@@ -22,4 +22,13 @@ public class SignService {
     public void insert(TUser user) {
         mapper.insert(user);
     }
+
+    public void update(TUser user) {
+        mapper.updateByPrimaryKey(user);
+    }
+
+    public int countUserName(String username) {
+        return mapper.countUserName(username);
+
+    }
 }

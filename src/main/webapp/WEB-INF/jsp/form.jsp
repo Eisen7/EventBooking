@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0067)https://v4.bootcss.com/docs/4.0/examples/checkout/?paymentMethod=on -->
+<!-- saved from url=(0050)https://v4.bootcss.com/docs/4.0/examples/checkout/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,17 +10,17 @@
     <title>Checkout example for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../resources/bootstrap.min.css" rel="stylesheet">
+    <link href="../../down/form_files/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./css/form-validation.css" rel="stylesheet">
+    <link href="../../down/form_files/form-validation.css" rel="stylesheet">
   </head>
 
   <body class="bg-light">
 
     <div class="container">
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="./css/bootstrap-solid.svg" alt="" width="72" height="72">
+        <img class="d-block mx-auto mb-4" src="../../down/form_files/bootstrap-solid.svg" alt="" width="72" height="72">
         <h2>Checkout form</h2>
         <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
       </div>
@@ -227,9 +227,9 @@
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">© 2017-2018 Company Name</p>
         <ul class="list-inline">
-          <li class="list-inline-item"><a href="https://v4.bootcss.com/docs/4.0/examples/checkout/?paymentMethod=on#">Privacy</a></li>
-          <li class="list-inline-item"><a href="https://v4.bootcss.com/docs/4.0/examples/checkout/?paymentMethod=on#">Terms</a></li>
-          <li class="list-inline-item"><a href="https://v4.bootcss.com/docs/4.0/examples/checkout/?paymentMethod=on#">Support</a></li>
+          <li class="list-inline-item"><a href="https://v4.bootcss.com/docs/4.0/examples/checkout/#">Privacy</a></li>
+          <li class="list-inline-item"><a href="https://v4.bootcss.com/docs/4.0/examples/checkout/#">Terms</a></li>
+          <li class="list-inline-item"><a href="https://v4.bootcss.com/docs/4.0/examples/checkout/#">Support</a></li>
         </ul>
       </footer>
     </div>
@@ -237,11 +237,11 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../resources/jquery-3.3.1.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../resources/jquery-3.3.1.js"><\/script>')</script>
-    <script src="./js/popper.min.js"></script>
-    <script src="../resources/bootstrap.min.js"></script>
-    <script src="./js/holder.min.js"></script>
+    <script src="../../down/form_files/jquery-3.2.1.slim.min.js.下载" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../down/form_files/popper.min.js.下载"></script>
+    <script src="../../down/form_files/bootstrap.min.js.下载"></script>
+    <script src="../../down/form_files/holder.min.js.下载"></script>
     <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {

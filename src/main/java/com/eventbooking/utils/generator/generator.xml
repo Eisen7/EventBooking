@@ -28,13 +28,13 @@
         <javaModelGenerator targetPackage="com.eventbooking.utils.generator.model"
                             targetProject="D:\IdeaProjects\EventBooking\src\main\java"/>
 
-        <sqlMapGenerator targetPackage="com.eventbooking.sign.mapper"
+        <sqlMapGenerator targetPackage="com.eventbooking.utils.generator.mapper"
                          targetProject="D:\IdeaProjects\EventBooking\src\main\java"/>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.eventbooking.sign.mapper"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.eventbooking.utils.generator.mapper"
                              targetProject="D:\IdeaProjects\EventBooking\src\main\java"/>
 
-        <table tableName="t_user" />
+        <table tableName="t_class" />
 
     </context>
 </generatorConfiguration>

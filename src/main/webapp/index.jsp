@@ -12,8 +12,7 @@
   </head>
   <body>
   <%
-    String login = "/loginAndSignUp/Login.html";
-//    request.getRequestDispatcher(login).forward(request, response);
+    String login = "/sign/Login.html";
     response.sendRedirect(login);
   %>
   $END$

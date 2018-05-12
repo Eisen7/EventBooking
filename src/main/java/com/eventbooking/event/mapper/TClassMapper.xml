@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eventbooking.event.mapper.TClassMapper">
+    <resultMap id="BaseResultMap" type="com.eventbooking.event.model.TClass">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="teacher" jdbcType="VARCHAR" property="teacher"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="date" jdbcType="TIMESTAMP" property="date"/>
+        <result column="class_name" jdbcType="VARCHAR" property="className"/>
+        <result column="price" jdbcType="DOUBLE" property="price"/>
+        <result column="max_people" jdbcType="INTEGER" property="maxPeople"/>
+        <result column="flag" jdbcType="BIT" property="flag"/>
+        <result column="create_user_id" jdbcType="INTEGER" property="createUserId"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_class
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.eventbooking.event.model.TClass">
+    insert into t_class (id, teacher, address, 
+      date, class_name, price, 
+      max_people, flag, create_user_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{teacher,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{date,jdbcType=TIMESTAMP}, #{className,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
+      #{maxPeople,jdbcType=INTEGER}, #{flag,jdbcType=BIT}, #{createUserId,jdbcType=INTEGER}
+      )
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.eventbooking.event.model.TClass">
+    update t_class
+    set teacher = #{teacher,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      date = #{date,jdbcType=TIMESTAMP},
+      class_name = #{className,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      max_people = #{maxPeople,jdbcType=INTEGER},
+      flag = #{flag,jdbcType=BIT},
+      create_user_id = #{createUserId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, teacher, address, date, class_name, price, max_people, flag, create_user_id
+    from t_class
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, teacher, address, date, class_name, price, max_people, flag, create_user_id
+    from t_class
+  </select>
+
+    <select id="selectByUser1" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select t.id, t.teacher, t.address, t.date, t.class_name, t.price, t.max_people, t.flag,t.create_user_id
+    from t_class t right join t_user_class_booking uc on uc.class_id = t.id where uc.user_id = #{arg0,jdbcType=INTEGER}
+  </select>
+    <select id="selectByUser1Exit" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select a.*
+from t_class a
+where a.id not in (select t.class_id
+                   from t_user_class_booking t left join t_class c on t.class_id = c.id
+                   where t.user_id = #{arg0,jdbcType=INTEGER})
+  </select>
+    <select id="selectByUser0" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select t.id, t.teacher, t.address, t.date, t.class_name, t.price, t.max_people, t.flag,t.create_user_id
+    from t_class t where t.create_user_id = #{arg0,jdbcType=INTEGER}
+  </select>
+
+    <delete id="delBooking" parameterType="java.lang.Integer">
+    delete from t_user_class_booking
+    where user_id = #{arg0,jdbcType=INTEGER} and class_id= #{arg1,jdbcType=INTEGER}
+  </delete>
+</mapper>
