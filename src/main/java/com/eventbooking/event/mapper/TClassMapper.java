@@ -21,4 +21,6 @@ public interface TClassMapper {
     List<TClass> selectByUser0(Integer userId);
 
     void delBooking(Integer userId, Integer classId);
+
+    int booking(Integer userId, Integer classId);
 }

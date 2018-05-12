@@ -22,6 +22,8 @@
 
         function signup() {
 
+            alert($('#signupForm').serialize());
+
             $.ajax({
                 url: "/signup.do",
                 type: "POST",
@@ -43,16 +45,19 @@
 <body class="text-center">
 <form class="form-signin" id="signupForm">
     <img class="mb-4" src="../resources/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Event-Booking Sign up</h1>
 
     <label for="email" class="sr-only">Email address</label>
-    <input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="">
-    <input type="text" name="username" class="form-control" placeholder="Your LoginName" required="" autofocus="">
-    <input type="text" name="mobilePhone" class="form-control" placeholder="Mobile Phone" required="" autofocus="">
-    <input type="text" name="address" class="form-control" placeholder="Address" required="" autofocus="">
+    Email address<input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="">
+    Your LoginName<input type="text" name="username" class="form-control" placeholder="Your LoginName" required="" autofocus="">
+    Mobile Phone <input type="text" name="mobilePhone" class="form-control" placeholder="Mobile Phone" required="" autofocus="">
+    Address<input type="text" name="address" class="form-control" placeholder="Address" required="" autofocus="">
     <label for="password" class="sr-only">Password</label>
-    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="" autofocus="">
-
+    Password<input type="password" name="password" id="password" class="form-control" placeholder="Password" required="" autofocus="">
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="userType" value=0 name="userType">
+        <label class="custom-control-label" for="userType">注册系统用户?(注册后不可更改)</label>
+    </div>
 
     <div class="mb-3" style="display: inline">Already have an account?</div>
     <div class="btn-link mb-3" style="display: inline">

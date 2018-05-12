@@ -18,3 +18,29 @@ create table t_user (
   user_type   int comment '用户标识 0：系统用户 1：普通用户（学生） 2：老师用户，'
 );
 
+-- auto-generated definition
+create table t_class
+(
+  id             int auto_increment
+    primary key,
+  teacher        varchar(64)            not null,
+  address        varchar(128)           null,
+  date           datetime               null,
+  class_name     varchar(64)            null,
+  price          double default '0'     null,
+  max_people     int default '0'        null,
+  flag           tinyint(1) default '1' null,
+  create_user_id int                    not null
+)
+  engine = InnoDB;
+
+-- auto-generated definition
+create table t_user_class_booking
+(
+  user_id      int                    null,
+  class_id     int                    null,
+  booking_date datetime               null,
+  flag         tinyint(1) default '1' null
+)
+  engine = InnoDB;
+

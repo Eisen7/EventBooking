@@ -3,6 +3,7 @@ package com.eventbooking.sign.controller;
 import com.eventbooking.model.JsonResult;
 import com.eventbooking.sign.model.TUser;
 import com.eventbooking.sign.service.SignService;
+import com.eventbooking.utils.DateUtil;
 import com.eventbooking.utils.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,9 +36,11 @@ public class SignController {
         user.setLoginCount(user.getLoginCount() == null ? 1 : user.getLoginCount() + 1);
         user.setLastLoginDate(user.getLoginDate());
         user.setLoginDate(new Date());
+        service.update(user);
 
         session.setAttribute("user", user);
 
+        session.setAttribute("lastLoginDate",DateUtil.format(user.getLastLoginDate(),"yyyy/MM/dd HH:mm"));
         return new JsonResult(0, "Login Success");
 
     }
@@ -53,15 +56,39 @@ public class SignController {
             return new JsonResult(1, "User name is already used");
         }
 
-        user.setUserType(1);
+        user.setUserType(user.getUserType() == null ? 1 : user.getUserType());
         user.setLastLoginDate(new Date());
         user.setLoginDate(user.getLastLoginDate());
         user.setLoginCount(1);
         service.insert(user);
 
-        session.setAttribute("user", user);
+        session.setAttribute("user", service.getUserByNamePassword(user.getUsername(), user.getPassword()));
 
         return new JsonResult(0, "Sign Up success,your user name is " + user.getUsername());
+    }
+
+    @RequestMapping("/userInfo")
+    public String userInfo() {
+        return "userInfo";
+    }
+
+    @RequestMapping("/updateUserInfo")
+    @ResponseBody
+    public Object update(TUser tUser,HttpSession session) {
+
+        TUser user = (TUser) session.getAttribute("user");
+
+        tUser.setId(user.getId());
+        tUser.setLoginDate(user.getLoginDate());
+        tUser.setLastLoginDate(user.getLastLoginDate());
+        tUser.setLoginCount(user.getLoginCount());
+        tUser.setUserType(user.getUserType());
+        tUser.setUsername(user.getUsername());
+
+
+        service.update(tUser);
+        session.setAttribute("user", tUser);
+        return new JsonResult(0, "Update your message success");
     }
 
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eventbooking.event.mapper.TUserClassBookingMapper">
+  <resultMap id="BaseResultMap" type="com.eventbooking.event.model.TUserClassBooking">
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+    <result column="booking_date" jdbcType="TIMESTAMP" property="bookingDate" />
+    <result column="flag" jdbcType="BIT" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.eventbooking.event.model.TUserClassBooking">
+    insert into t_user_class_booking (user_id, class_id, booking_date, 
+      flag)
+    values (#{userId,jdbcType=INTEGER}, #{classId,jdbcType=INTEGER}, #{bookingDate,jdbcType=TIMESTAMP}, 
+      #{flag,jdbcType=BIT})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select user_id, class_id, booking_date, flag
+    from t_user_class_booking
+  </select>
+</mapper>

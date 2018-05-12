@@ -8,6 +8,6 @@ public class Test {
     public static void main(String[] args) {
         ApplicationContext ac = new FileSystemXmlApplicationContext("D:\\IdeaProjects\\EventBooking\\src\\main\\resources\\spring-application.xml");
         ClassService service = (ClassService) ac.getBean("classService");
-        System.out.println(service.selectByUser1(1));
+        System.out.println(service.booking(1, 14));
     }
 }

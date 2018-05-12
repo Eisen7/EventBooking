@@ -8,10 +8,10 @@
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone" />
     <result column="address" jdbcType="VARCHAR" property="address" />
-    <result column="last_login_date" jdbcType="DATE" property="lastLoginDate" />
+    <result column="last_login_date" jdbcType="TIMESTAMP" property="lastLoginDate" />
     <result column="login_count" jdbcType="INTEGER" property="loginCount" />
     <result column="user_type" jdbcType="INTEGER" property="userType" />
-    <result column="login_date" jdbcType="DATE" property="loginDate" />
+    <result column="login_date" jdbcType="TIMESTAMP" property="loginDate" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_user
@@ -24,8 +24,8 @@
       login_date)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
-      #{lastLoginDate,jdbcType=DATE}, #{loginCount,jdbcType=INTEGER}, #{userType,jdbcType=INTEGER}, 
-      #{loginDate,jdbcType=DATE})
+      #{lastLoginDate,jdbcType=TIMESTAMP}, #{loginCount,jdbcType=INTEGER}, #{userType,jdbcType=INTEGER},
+      #{loginDate,jdbcType=TIMESTAMP})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.eventbooking.sign.model.TUser">
     update t_user
@@ -34,10 +34,10 @@
       email = #{email,jdbcType=VARCHAR},
       mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
-      last_login_date = #{lastLoginDate,jdbcType=DATE},
+      last_login_date = #{lastLoginDate,jdbcType=TIMESTAMP},
       login_count = #{loginCount,jdbcType=INTEGER},
       user_type = #{userType,jdbcType=INTEGER},
-      login_date = #{loginDate,jdbcType=DATE}
+      login_date = #{loginDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 

@@ -1232,6 +1232,8 @@
       <Position>9</Position>
       <Comment>用户标识 0：系统用户 1：普通用户（学生） 2：老师用户，</Comment>
       <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="302" parent="281" name="login_date">

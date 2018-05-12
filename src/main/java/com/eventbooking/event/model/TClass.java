@@ -21,6 +21,16 @@ public class TClass {
 
     private Integer createUserId;
 
+    private String dateString;
+
+    public String getDateString() {
+        return dateString;
+    }
+
+    public void setDateString(String dateString) {
+        this.dateString = dateString;
+    }
+
     public Integer getId() {
         return id;
     }

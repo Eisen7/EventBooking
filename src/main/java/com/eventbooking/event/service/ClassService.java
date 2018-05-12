@@ -1,10 +1,13 @@
 package com.eventbooking.event.service;
 
 import com.eventbooking.event.mapper.TClassMapper;
+import com.eventbooking.event.mapper.TUserClassBookingMapper;
 import com.eventbooking.event.model.TClass;
+import com.eventbooking.event.model.TUserClassBooking;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -12,6 +15,10 @@ public class ClassService {
 
     @Autowired
     TClassMapper mapper;
+
+    @Autowired
+    TUserClassBookingMapper tUserClassBookingMapper;
+
 
     public void insert(TClass tClass) {
         mapper.insert(tClass);
@@ -38,5 +45,23 @@ public class ClassService {
 
     public void delBooking(Integer userId, Integer classId) {
         mapper.delBooking(userId,classId);
+    }
+
+    public int booking(Integer userId, Integer classId) {
+        TUserClassBooking tUserClassBooking = new TUserClassBooking();
+        tUserClassBooking.setUserId(userId);
+        tUserClassBooking.setBookingDate(new Date());
+        tUserClassBooking.setClassId(classId);
+        tUserClassBooking.setFlag(true);
+       return tUserClassBookingMapper.insert(tUserClassBooking);
+    }
+
+
+    public TClass selectById(Integer classId) {
+        return mapper.selectByPrimaryKey(classId);
+    }
+
+    public void delClass(Integer classId) {
+        mapper.deleteByPrimaryKey(classId);
     }
 }
