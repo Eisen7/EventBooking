@@ -5,19 +5,6 @@ flush privileges;
 create database eventbooking
 */
 use eventbooking;
-create table t_user (
-  id              int auto_increment primary key
-  comment '用户id',
-  username        varchar(32) comment '用户id',
-  password        varchar(32) comment '用户密码',
-  email           varchar(64) comment '用户邮箱',
-  mobile_phone    varchar(32) comment '用户手机号码',
-  address         varchar(256) comment '用户住址',
-  last_login_date date comment '上次登陆时间',
-  login_count     int comment '登陆次数',
-  user_type   int comment '用户标识 0：系统用户 1：普通用户（学生） 2：老师用户，'
-);
-
 -- auto-generated definition
 create table t_class
 (
@@ -28,9 +15,37 @@ create table t_class
   date           datetime               null,
   class_name     varchar(64)            null,
   price          double default '0'     null,
-  max_people     int default '0'        null,
+  max_people     int default '100'      null,
   flag           tinyint(1) default '1' null,
-  create_user_id int                    not null
+  create_user_id int                    null
+)
+  engine = InnoDB;
+
+-- auto-generated definition
+create table t_user
+(
+  id              int auto_increment
+  comment '用户id'
+    primary key,
+  username        varchar(32)     not null
+  comment '用户id',
+  password        varchar(32)     null
+  comment '用户密码',
+  email           varchar(64)     null
+  comment '用户邮箱',
+  mobile_phone    varchar(32)     null
+  comment '用户手机号码',
+  address         varchar(256)    null
+  comment '用户住址',
+  last_login_date datetime        null
+  comment '上次登陆时间',
+  login_count     int             null
+  comment '登陆次数',
+  user_type       int default '1' not null
+  comment '用户标识 0：系统用户 1：普通用户（学生） 2：老师用户，',
+  login_date      datetime        null,
+  constraint t_user_username_uindex
+  unique (username)
 )
   engine = InnoDB;
 
