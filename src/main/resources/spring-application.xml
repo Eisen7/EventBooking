@@ -8,7 +8,7 @@
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/eventbooking"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/eventbooking?useSSL=false"/>
         <property name="username" value="eventbooking"/>
         <property name="password" value="eventbooking"/>
     </bean>

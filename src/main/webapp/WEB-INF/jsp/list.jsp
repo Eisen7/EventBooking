@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="https://v4.bootcss.com/favicon.ico">
 
-    <title>Offcanvas template for Bootstrap</title>
+    <title>SilkRoad</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../down/list_files/bootstrap.min.css" rel="stylesheet">

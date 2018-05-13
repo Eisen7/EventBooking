@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="https://v4.bootcss.com/favicon.ico">
 
-    <title>Checkout example for Bootstrap</title>
+    <title>SilkRoad</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../down/form_files/bootstrap.min.css" rel="stylesheet">
@@ -127,7 +127,7 @@
                 <label for="email" class="sr-only">Email address</label>
                 Email address<input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="" value="${user.email}" }>
                 Mobile Phone <input type="text" name="mobilePhone" class="form-control" placeholder="Mobile Phone" required="" autofocus="" value="${user.mobilePhone}">
-                Address<input type="text" name="address" class="form-control" placeholder="Address" required="" autofocus="" ${user.address}>
+                Address<input type="text" name="address" class="form-control" placeholder="Address" required="" autofocus="" value="${user.address}">
                 <label for="password" class="sr-only">Password</label>
                 Password<input type="password" name="password" id="password" class="form-control" placeholder="Password" required="" autofocus="" value="${user.password}">
 
