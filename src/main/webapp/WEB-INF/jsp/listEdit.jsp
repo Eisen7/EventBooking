@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="https://v4.bootcss.com/favicon.ico">
 
-    <title>Offcanvas template for Bootstrap</title>
+    <title>SilkRoad</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../down/list_files/bootstrap.min.css" rel="stylesheet">
@@ -95,10 +95,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/userInfo.do">用户设置</a>
             </li>
-
         </ul>
-
     </div>
+    <form class="form-inline my-2 my-lg-0" action="/logout.do" method="post">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">注销</button>
+    </form>
 </nav>
 
 
@@ -149,7 +150,9 @@
 <%--<script src="../../down/list_files/holder.min.js.下载"></script>--%>
 <%--<script src="../../down/list_files/offcanvas.js.下载"></script>--%>
 
-
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">© 2018 By SilkRoad</p>
+</footer>
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="none"
      style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;">
     <defs>

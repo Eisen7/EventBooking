@@ -59,10 +59,11 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/userInfo.do">用户设置</a>
             </li>
-
         </ul>
-
     </div>
+    <form class="form-inline my-2 my-lg-0" action="/logout.do" method="post">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">注销</button>
+    </form>
 </nav>
 <div class="container">
     <div class="py-5 text-center">
@@ -75,7 +76,7 @@
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">您的登陆次数为</span>
-                <span class="badge badge-secondary badge-pill">${user.loginCount}</span>
+                <span class="badge badge-secondary badge-pill">${user.loginCount}次</span>
             </h4>
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between bg-light">
@@ -134,14 +135,12 @@
 
                 <button class="btn btn-lg btn-primary btn-block" type="button" id="loginButton" onclick="updateUserInfo()">Update your message</button>
 
-                <p class="mt-5 mb-3 text-muted">© 2018 By SilkRoad</p>
             </form>
         </div>
     </div>
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2017-2018 Company Name</p>
-
+        <p class="mb-1">© 2018 By SilkRoad</p>
     </footer>
 </div>
 

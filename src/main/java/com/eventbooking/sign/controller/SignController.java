@@ -91,4 +91,10 @@ public class SignController {
         return new JsonResult(0, "Update your message success");
     }
 
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/index.jsp";
+    }
+
 }
