@@ -1,0 +1,4 @@
+INSERT INTO eventbooking.t_user (id, username, password, email, mobile_phone, address, last_login_date, login_count, user_type, login_date) VALUES (1, 'root', 'root', 'Email', '123456', '我的地址', '2018-05-13 22:25:10', 3, 0, '2018-05-13 22:26:37');
+INSERT INTO eventbooking.t_user (id, username, password, email, mobile_phone, address, last_login_date, login_count, user_type, login_date) VALUES (2, '123456', '123456', '', '', '', '2018-05-13 20:10:13', 1, 1, '2018-05-13 20:10:13');
+INSERT INTO eventbooking.t_user (id, username, password, email, mobile_phone, address, last_login_date, login_count, user_type, login_date) VALUES (3, 'user', 'user', 'user', 'user', 'user', '2018-05-13 20:22:01', 1, 1, '2018-05-13 20:22:01');
+INSERT INTO eventbooking.t_user (id, username, password, email, mobile_phone, address, last_login_date, login_count, user_type, login_date) VALUES (4, '123', '123', '123', '123', '123', '2018-05-13 20:40:20', 1, 1, '2018-05-13 20:40:20');
