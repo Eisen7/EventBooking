@@ -58,6 +58,7 @@ public class SignController {
 
         user.setUserType(user.getUserType() == null ? 1 : user.getUserType());
         user.setLastLoginDate(new Date());
+        session.setAttribute("lastLoginDate",DateUtil.format(user.getLastLoginDate(),"yyyy/MM/dd HH:mm"));
         user.setLoginDate(user.getLastLoginDate());
         user.setLoginCount(1);
         service.insert(user);

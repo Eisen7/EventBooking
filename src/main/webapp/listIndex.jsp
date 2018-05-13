@@ -14,10 +14,10 @@
     <title>SilkRoad</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../down/list_files/bootstrap.min.css" rel="stylesheet">
+    <link href="down/list_files/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../../down/list_files/offcanvas.css" rel="stylesheet">
+    <link href="down/list_files/offcanvas.css" rel="stylesheet">
 
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jquery-3.3.1.js"></script>
     <script type="text/javascript">
@@ -38,21 +38,8 @@
             })
         }
 
-        function booking(classId) {
-            $.ajax({
-                url: "/booking.do",
-                type: "POST",
-                dataType: "json",
-                data: "classId=" + classId,
-                success: function (data) {
-                    alert(data.data);
-                    if (data.state === 0) {
-                        window.location.href = "/classList.do";
-                    } else {
-                        window.location.href = "/index.jsp";
-                    }
-                }
-            })
+        function toLogin(classId) {
+            window.location.href = "/index.jsp";
         }
 
 
@@ -80,7 +67,7 @@
 
 <body class="bg-light">
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand" href="/classList.do">Index page</a>
+    <%--<a class="navbar-brand" href="/classList.do">Login</a>--%>
     <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -88,34 +75,34 @@
     <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/classList.do">Event management<span
+                <a class="nav-link" href="/sign/Login.html">Login<span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/userInfo.do">User settings</a>
+                <a class="nav-link" href="/sign/SignUp.html">Sign up</a>
             </li>
 
         </ul>
     </div>
 
-    <form class="form-inline my-2 my-lg-0" action="/logout.do" method="post">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
-    </form>
+    <%--<form class="form-inline my-2 my-lg-0" action="/sign/SignUp.html" method="post">--%>
+        <%--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>--%>
+    <%--</form>--%>
 </nav>
 
 <main role="main" class="container">
-    <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
-        <img class="mr-3" src="../../down/list_files/bootstrap-outline.svg" alt="" width="48" height="48">
-        <div class="lh-100">
-            <h6 class="mb-0 text-white lh-100">User name:${user.username}</h6>
-            <small id="showTime"></small>
-            <%--<label id="showTime"></label>--%>
-        </div>
-    </div>
+    <%--<div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">--%>
+        <%--<img class="mr-3" src="down/list_files/bootstrap-outline.svg" alt="" width="48" height="48">--%>
+        <%--<div class="lh-100">--%>
+            <%--<h6 class="mb-0 text-white lh-100">User name:${user.username}</h6>--%>
+            <%--<small id="showTime"></small>--%>
+            <%--&lt;%&ndash;<label id="showTime"></label>&ndash;%&gt;--%>
+        <%--</div>--%>
+    <%--</div>--%>
 
     <div class="my-3 p-3 bg-white rounded box-shadow">
-        <h6 class="border-bottom border-gray pb-2 mb-0">&nbsp;&nbsp;&nbsp;Event management</h6>
-        <c:forEach var="bean" items="${createList}">
+        <h6 class="border-bottom border-gray pb-2 mb-0">&nbsp;&nbsp;&nbsp;All Events</h6>
+        <c:forEach var="bean" items="${list}">
             <div class="media text-muted pt-3">
                 &nbsp;&nbsp;&nbsp;
                 <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="32x32"
@@ -124,16 +111,15 @@
                      data-holder-rendered="true" style="width: 32px; height: 32px;">
                 <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                     <strong class="d-block text-gray-dark">Event Name: ${bean.className}   &nbsp;&nbsp;&nbsp;   Teacher name: ${bean.teacher}</strong>
-                    Address: ${bean.address}   &nbsp;&nbsp;&nbsp;    Date: ${bean.date}
+                    Address: ${bean.address}   &nbsp;&nbsp;&nbsp;    Date: ${bean.date}   &nbsp;&nbsp;&nbsp; Selected/Max people number:${bean.nowPeople}/${bean.maxPeople}
                 </p>
-                <a href="javascript:void(0);" onclick="delClass(${bean.id})">Delete</a>&nbsp;&nbsp;
-                <a href="/form.do?classId=${bean.id}">Edit</a>
-
+                <a href="javascript:void(0);" onclick="toLogin(${bean.id})">select</a>&nbsp;&nbsp;
+                <%--<a href="/form.do?classId=${bean.id}">Edit</a>--%>
             </div>
         </c:forEach>
 
         <small class="d-block text-right mt-3">
-        <a href="/form.do">Add</a>
+        <%--<a href="/form.do">Add</a>--%>
         </small>
     </div>
 </main>

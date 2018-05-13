@@ -64,7 +64,7 @@
 
 <body class="bg-light">
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand" href="/classList.do"> 主页 </a>
+    <a class="navbar-brand" href="/classList.do">Index page</a>
     <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -72,125 +72,80 @@
     <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/classList.do">选课管理 <span
+                <a class="nav-link" href="/classList.do">Event management<span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/userInfo.do">用户设置</a>
+                <a class="nav-link" href="/userInfo.do">User settings</a>
             </li>
 
         </ul>
     </div>
 
     <form class="form-inline my-2 my-lg-0" action="/logout.do" method="post">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">注销</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
     </form>
 </nav>
 <div class="container">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="../../down/form_files/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>创建或者修改您的事件</h2>
-        <p class="lead">您可以在这管理您所拥有的事件</p>
+        <h2>Create or modify your events</h2>
+        <p class="lead">You can manage the events you have here.</p>
     </div>
 
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-muted">您的登陆次数为</span>
-                <span class="badge badge-secondary badge-pill">${user.loginCount}次</span>
+                <span class="text-muted">Login times</span>
+                <span class="badge badge-secondary badge-pill">${user.loginCount}</span>
             </h4>
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between bg-light">
                     <div class="text-success">
                         <h6 class="my-0">Login Type</h6>
-                        <small>登陆身份</small>
+                        <%--<small>system or ordinary user</small>--%>
                     </div>
-                    <span class="text-success">${user.userType==0?"管理员":"普通用户"}</span>
+                    <span class="text-success">${user.userType==0?"System user":"Consumer user"}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                        <h6 class="my-0">Login Name</h6>
-                        <small class="text-muted">您的登陆名</small>
+                        <h6 class="my-0">User name</h6>
+                        <%--<small class="text-muted">login name</small>--%>
                     </div>
                     <span class="text-muted">${user.username}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0">Email</h6>
-                        <small class="text-muted">您的邮箱地址</small>
+                        <%--<small class="text-muted">User email</small>--%>
                     </div>
                     <span class="text-muted">${user.email}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                        <h6 class="my-0">Last Login Time</h6>
-                        <small class="text-muted">上次登录时间</small>
+                        <h6 class="my-0">Last login</h6>
+                        <%--<small class="text-muted">Last Login Time</small>--%>
                     </div>
                     <span class="text-muted">${lastLoginDate}</span>
                 </li>
 
                 <li class="list-group-item d-flex justify-content-between">
-                    <span>Mobile Phone</span>
+                    <span>Phone</span>
                     <strong>${user.mobilePhone}</strong>
                 </li>
             </ul>
 
-            <%--<form class="card p-2">--%>
-            <%--<div class="input-group">--%>
-            <%--<input type="text" class="form-control" placeholder="Promo code">--%>
-            <%--<div class="input-group-append">--%>
-            <%--<button type="submit" class="btn btn-secondary">Redeem</button>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--</form>--%>
         </div>
 
         <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Billing Event</h4>
+            <h4 class="mb-3">Billing or update event</h4>
             <form class="needs-validation" id="form" name="form" action="/addOrUpdateForm.do" method="post">
-                <%--<div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                        <div class="invalid-feedback">
-                            Valid first name is required.
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                        <div class="invalid-feedback">
-                            Valid last name is required.
-                        </div>
-                    </div>
-                </div>
 
-                <div class="mb-3">
-                    <label for="username">Username</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">@</span>
-                        </div>
-                        <input type="text" class="form-control" id="username" placeholder="Username" required="">
-                        <div class="invalid-feedback" style="width: 100%;">
-                            Your username is required.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                    <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
-                    </div>
-                </div>
---%>
 
                 <input type="text" name="id" hidden="hidden" value="${form.id}">
                 <div class="mb-3">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" placeholder="比如 北京市 昌平区"
+                    <input type="text" class="form-control" id="address" name="address" placeholder="For example, Sydney Opera House."
                            required="" value="${form.address}">
                     <div class="invalid-feedback">
                         Please enter address.
@@ -199,7 +154,7 @@
 
                 <div class="mb-3">
                     <label for="className">CLass Name <span class="text-muted">(Event Name)</span></label>
-                    <input type="text" class="form-control" id="className" name="className" placeholder="比如 Java开发讲座"
+                    <input type="text" class="form-control" id="className" name="className" placeholder="For example, higher mathematics."
                            value="${form.className}">
                 </div>
 
@@ -209,104 +164,29 @@
                            class="form-control" id="dateString"
                            name="dateString" placeholder="">
                 </div>
-                <%--
-                                <div class="row">
-                                    <div class="col-md-5 mb-3">
-                                        <label for="country">Country</label>
-                                        <select class="custom-select d-block w-100" id="country" required="">
-                                            <option value="">Choose...</option>
-                                            <option>United States</option>
-                                        </select>
-                                        <div class="invalid-feedback">
-                                            Please select a valid country.
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="state">State</label>
-                                        <select class="custom-select d-block w-100" id="state" required="">
-                                            <option value="">Choose...</option>
-                                            <option>California</option>
-                                        </select>
-                                        <div class="invalid-feedback">
-                                            Please provide a valid state.
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="zip">Zip</label>
-                                        <input type="text" class="form-control" id="zip" placeholder="" required="">
-                                        <div class="invalid-feedback">
-                                            Zip code required.
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="mb-4">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="same-address">
-                                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing
-                                        address</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="save-info">
-                                    <label class="custom-control-label" for="save-info">Save this information for next time</label>
-                                </div>
-                                <hr class="mb-4">
-
-                                <h4 class="mb-3">Payment</h4>
-
-                                <div class="d-block my-3">
-                                    <div class="custom-control custom-radio">
-                                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked=""
-                                               required="">
-                                        <label class="custom-control-label" for="credit">Credit card</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                                        <label class="custom-control-label" for="debit">Debit card</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                                        <label class="custom-control-label" for="paypal">Paypal</label>
-                                    </div>
-                                </div>
-                                --%>
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="price">Price</label>
                         <input type="text" class="form-control" id="price" name="price" placeholder="" required="价格"
                                onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" value="${form.price}">
-                        <small class="text-muted">课程价格</small>
-                        <div class="invalid-feedback">
-                            课程价格
-                        </div>
+                        <small class="text-muted">The price of event</small>
+                        <%--<div class="invalid-feedback">--%>
+                            <%--课程价格--%>
+                        <%--</div>--%>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="maxPeople">Max People</label>
                         <input type="text" class="form-control" id="maxPeople" name="maxPeople" placeholder=""
-                               required="最大人数"
+                               required=""
                                onkeyup="this.value=this.value.replace(/\D/g,'')"
                                onafterpaste="this.value=this.value.replace(/\D/g,'')" value="${form.maxPeople}">
-                        <div class="invalid-feedback">
-                            课程最大人数
-                        </div>
+                        <small class="text-muted">The number of users that can be accommodated,default 100</small>
+                        <%--<div class="invalid-feedback">--%>
+                            <%--课程最大人数--%>
+                        <%--</div>--%>
                     </div>
                 </div>
-                <%--
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <label for="cc-expiration">Expiration</label>
-                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                    <div class="invalid-feedback">
-                        Expiration date required
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <label for="cc-expiration">CVV</label>
-                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                    <div class="invalid-feedback">
-                        Security code required
-                    </div>
-                </div>
-            </div>--%>
+
                 <hr class="mb-4">
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Add or update</button>
             </form>
@@ -317,45 +197,9 @@
         <p class="mb-1">© 2018 By SilkRoad</p>
         <%--<ul class="list-inline">--%>
         <%--<li class="list-inline-item"><a href="https://v4.bootcss.com/docs/4.0/examples/checkout/#">Privacy</a></li>--%>
-        <%--<li class="list-inline-item"><a href="https://v4.bootcss.com/docs/4.0/examples/checkout/#">Terms</a></li>--%>
-        <%--<li class="list-inline-item"><a href="https://v4.bootcss.com/docs/4.0/examples/checkout/#">Support</a></li>--%>
-        <%--</ul>--%>
     </footer>
 </div>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster
-<script src="../../down/form_files/jquery-3.2.1.slim.min.js.下载"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-<script src="../../down/form_files/popper.min.js.下载"></script>
-<script src="../../down/form_files/bootstrap.min.js.下载"></script>
-<script src="../../down/form_files/holder.min.js.下载"></script>
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-        'use strict';
-
-        window.addEventListener('load', function () {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-</script>
--->
 
 </body>
 </html>

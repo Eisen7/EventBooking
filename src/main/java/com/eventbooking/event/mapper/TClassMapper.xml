@@ -69,4 +69,8 @@
     where user_id = #{arg0,jdbcType=INTEGER} and class_id= #{arg1,jdbcType=INTEGER}
   </delete>
 
+    <select id="countClassPeople" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select count(*) from t_user_class_booking where class_id = #{arg0,jdbcType=INTEGER} ;
+    </select>
+
 </mapper>

@@ -48,6 +48,8 @@ public class ClassService {
     }
 
     public int booking(Integer userId, Integer classId) {
+
+
         TUserClassBooking tUserClassBooking = new TUserClassBooking();
         tUserClassBooking.setUserId(userId);
         tUserClassBooking.setBookingDate(new Date());
@@ -63,5 +65,13 @@ public class ClassService {
 
     public void delClass(Integer classId) {
         mapper.deleteByPrimaryKey(classId);
+    }
+
+    public Integer countClassPeople(Integer classId) {
+        return mapper.countClassPeople(classId);
+    }
+
+    public List<TClass> selectAll() {
+        return mapper.selectAll();
     }
 }

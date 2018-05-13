@@ -1158,7 +1158,7 @@
     <column id="289" parent="280" name="max_people">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <DefaultExpression>&apos;100&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="290" parent="280" name="flag">

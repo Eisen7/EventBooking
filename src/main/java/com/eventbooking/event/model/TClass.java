@@ -23,6 +23,16 @@ public class TClass {
 
     private String dateString;
 
+    private Integer nowPeople;
+
+    public Integer getNowPeople() {
+        return nowPeople;
+    }
+
+    public void setNowPeople(Integer nowPeople) {
+        this.nowPeople = nowPeople;
+    }
+
     public String getDateString() {
         return dateString;
     }

@@ -30,12 +30,21 @@ public class ClassController {
         }
         if (user.getUserType() == 1) {
             List<TClass> list = service.selectByUser1(user.getId());
+            for (TClass tClass : list) {
+                tClass.setNowPeople(service.countClassPeople(tClass.getId()));
+            }
             request.setAttribute("bookingList", list);
             List<TClass> listExit = service.selectByUser1Exit(user.getId());
+            for (TClass tClass : listExit) {
+                tClass.setNowPeople(service.countClassPeople(tClass.getId()));
+            }
             request.setAttribute("bookingExit", listExit);
             return "list";
         } else {
             List<TClass> list = service.selectByUser0(user.getId());
+            for (TClass tClass : list) {
+                tClass.setNowPeople(service.countClassPeople(tClass.getId()));
+            }
             request.setAttribute("createList", list);
             return "listEdit";
         }
@@ -49,7 +58,7 @@ public class ClassController {
             return new JsonResult(1, "Please Login");
         }
         service.delBooking(user.getId(), Integer.valueOf(classId));
-        return new JsonResult(0, "删除成功");
+        return new JsonResult(0, "Unselected success");
     }
 
     @RequestMapping("/booking")
@@ -60,8 +69,15 @@ public class ClassController {
             return new JsonResult(1, "Please Login");
         }
 
+
+        TClass tClass = service.selectById(Integer.valueOf(classId));
+        Integer nowPeople = service.countClassPeople(Integer.valueOf(classId));
+        if (tClass.getMaxPeople() <= nowPeople) {
+            return new JsonResult(0, "The current event personnel are full.");
+        }
+
         service.booking(user.getId(), Integer.valueOf(classId));
-        return new JsonResult(0, "预定成功");
+        return new JsonResult(0, "Selected success");
     }
 
     @RequestMapping("/delClass")
@@ -72,18 +88,19 @@ public class ClassController {
             return new JsonResult(1, "Please Login");
         }
         service.delClass(Integer.valueOf(classId));
-        return new JsonResult(0, "删除成功");
+        return new JsonResult(0, "Delete success");
     }
 
     @RequestMapping("/form")
     public Object form(String classId, HttpServletRequest request) {
         TUser user = (TUser) request.getSession().getAttribute("user");
         if (user == null || user.getUserType() != 0) {
-            return new JsonResult(1, "Please Login 或者以管理员身份登录");
+            return "redirect:/listIndex.do";
         }
         if (!StringUtils.isEmpty(classId)) {
             TClass tClass = service.selectById(Integer.valueOf(classId));
             tClass.setDateString(DateUtil.formatT(tClass.getDate()));
+
             request.setAttribute("form", tClass);
         }
 
@@ -94,13 +111,15 @@ public class ClassController {
     public Object addForm(TClass tClass,HttpServletRequest request) throws ParseException {
         TUser user = (TUser) request.getSession().getAttribute("user");
         if (user == null || user.getUserType() != 0) {
-            return new JsonResult(1, "Please Login 或者以管理员身份登录");
+            return "redirect:/listIndex.do";
         }
         tClass.setTeacher(user.getUsername());
         tClass.setCreateUserId(user.getId());
         tClass.setFlag(true);
         tClass.setDate(DateUtil.getH5Date(tClass.getDateString()));
-
+        if (tClass.getMaxPeople() == null || tClass.getMaxPeople() < 1) {
+            tClass.setMaxPeople(100);
+        }
         if (tClass.getId() != null) {
             service.update(tClass);
         } else {
@@ -108,6 +127,17 @@ public class ClassController {
         }
 
         return "redirect:/classList.do";
+    }
+
+
+    @RequestMapping("/listIndex")
+    public Object listUnlogin(HttpServletRequest request) {
+        List<TClass> list = service.selectAll();
+        for (TClass tClass : list) {
+            tClass.setNowPeople(service.countClassPeople(tClass.getId()));
+        }
+        request.setAttribute("list", list);
+        return "forward:/listIndex.jsp";
     }
 
 

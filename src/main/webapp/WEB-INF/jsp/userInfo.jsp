@@ -45,75 +45,76 @@
 
 <body class="bg-light">
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand" href="/classList.do"> 主页 </a>
+    <a class="navbar-brand" href="/classList.do">Index page</a>
     <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/classList.do">选课管理 <span
+            <li class="nav-item ">
+                <a class="nav-link" href="/classList.do">Event management<span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/userInfo.do">用户设置</a>
+                <a class="nav-link" href="/userInfo.do">User settings</a>
             </li>
+
         </ul>
     </div>
+
     <form class="form-inline my-2 my-lg-0" action="/logout.do" method="post">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">注销</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
     </form>
 </nav>
 <div class="container">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="../../down/form_files/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>更新您的个人信息</h2>
-        <p class="lead">更新以及查看您的个人信息</p>
+        <h2>Update your message</h2>
+        <p class="lead">You can update your message in this page.</p>
     </div>
 
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-muted">您的登陆次数为</span>
-                <span class="badge badge-secondary badge-pill">${user.loginCount}次</span>
+                <span class="text-muted">Login times</span>
+                <span class="badge badge-secondary badge-pill">${user.loginCount}</span>
             </h4>
             <ul class="list-group mb-3">
                 <li class="list-group-item d-flex justify-content-between bg-light">
                     <div class="text-success">
                         <h6 class="my-0">Login Type</h6>
-                        <small>登陆身份</small>
+                        <%--<small>system or ordinary user</small>--%>
                     </div>
-                    <span class="text-success">${user.userType==0?"管理员":"普通用户"}</span>
+                    <span class="text-success">${user.userType==0?"System user":"Consumer user"}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                        <h6 class="my-0">Login Name</h6>
-                        <small class="text-muted">您的登陆名</small>
+                        <h6 class="my-0">User name</h6>
+                        <%--<small class="text-muted">login name</small>--%>
                     </div>
                     <span class="text-muted">${user.username}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0">Email</h6>
-                        <small class="text-muted">您的邮箱地址</small>
+                        <%--<small class="text-muted">User email</small>--%>
                     </div>
                     <span class="text-muted">${user.email}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                        <h6 class="my-0">Last Login Time</h6>
-                        <small class="text-muted">上次登录时间</small>
+                        <h6 class="my-0">Last login</h6>
+                        <%--<small class="text-muted">Last Login Time</small>--%>
                     </div>
                     <span class="text-muted">${lastLoginDate}</span>
                 </li>
 
                 <li class="list-group-item d-flex justify-content-between">
-                    <span>Mobile Phone</span>
+                    <span>Phone</span>
                     <strong>${user.mobilePhone}</strong>
                 </li>
             </ul>
-
 
         </div>
 
@@ -131,7 +132,7 @@
                 Password<input type="password" name="password" id="password" class="form-control" placeholder="Password" required="" autofocus="" value="${user.password}">
 
 
-                <div class="mb-3" style="display: inline">点击下面按钮即可更新</div>
+                <div class="mb-3" style="display: inline">Click the button below to update</div>
 
                 <button class="btn btn-lg btn-primary btn-block" type="button" id="loginButton" onclick="updateUserInfo()">Update your message</button>
 
