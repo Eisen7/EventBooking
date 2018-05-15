@@ -14,10 +14,10 @@
     <title>SilkRoad</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="down/list_files/bootstrap.min.css" rel="stylesheet">
+    <link href="/down/list_files/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="down/list_files/offcanvas.css" rel="stylesheet">
+    <link href="/down/list_files/offcanvas.css" rel="stylesheet">
 
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jquery-3.3.1.js"></script>
     <script type="text/javascript">
