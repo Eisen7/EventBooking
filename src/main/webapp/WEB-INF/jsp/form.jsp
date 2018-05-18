@@ -153,7 +153,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="className">CLass Name <span class="text-muted">(Event Name)</span></label>
+                    <label for="className">Event Name <span class="text-muted"></span></label>
                     <input type="text" class="form-control" id="className" name="className" placeholder="For example, higher mathematics."
                            value="${form.className}">
                 </div>
