@@ -1,0 +1,28 @@
+.myback {
+    background-image: url('/resources/back2.PNG');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.myback2 {
+    background-image: url('/resources/back1.PNG');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.myback1 {
+    background-image: url('/resources/logo2.PNG');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top left;
+    background-size: 20% 20%;
+}
+.myback4 {
+    background-image: url('/resources/logo1.PNG');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top left;
+    background-size: 20% 32%;
+}

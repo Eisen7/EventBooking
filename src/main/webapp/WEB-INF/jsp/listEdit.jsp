@@ -15,6 +15,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../../down/list_files/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/common.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../../down/list_files/offcanvas.css" rel="stylesheet">
@@ -78,7 +79,7 @@
 
 </head>
 
-<body class="bg-light">
+<body class="myback4">
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
     <a class="navbar-brand" href="/classList.do">Index page</a>
     <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
@@ -151,7 +152,7 @@
 <%--<script src="../../down/list_files/offcanvas.js.下载"></script>--%>
 
 <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">© 2018 By SilkRoad</p>
+    <p class="mb-1">2018 By SilkRoad</p>
 </footer>
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="none"
      style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;">

@@ -7,4 +7,6 @@ public interface TUserClassBookingMapper {
     int insert(TUserClassBooking record);
 
     List<TUserClassBooking> selectAll();
+
+    void delByClassId(Integer classId);
 }

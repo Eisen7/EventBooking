@@ -13,6 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../resources/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/common.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/sign.css" rel="stylesheet">
@@ -40,24 +41,23 @@
 
 </head>
 
-<body class="text-center">
+<body class="myback2">
 <form class="form-signin" id="signupForm">
     <img class="mb-4" src="../resources/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Event-Booking Sign up</h1>
+    <h1 class="h3 mb-3 font-weight-normal" style="color: lightskyblue;">Event-Booking Sign up</h1>
 
-    <label for="email" class="sr-only">Email address</label>
-    Email address<input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="">
-    Your LoginName<input type="text" name="username" class="form-control" placeholder="Your LoginName" required="" autofocus="">
-    Mobile Phone <input type="text" name="mobilePhone" class="form-control" placeholder="Mobile Phone" required="" autofocus="">
-    Address<input type="text" name="address" class="form-control" placeholder="Address" required="" autofocus="">
+    <span style="color: #ffffff;">Email address</span><input type="email" name="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="">
+    <span style="color: #ffffff;">Your LoginName</span><input type="text" name="username" class="form-control" placeholder="Your LoginName" required="" autofocus="">
+    <span style="color: #ffffff;">Mobile Phone</span> <input type="text" name="mobilePhone" class="form-control" placeholder="Mobile Phone" required="" autofocus="">
+    <span style="color: #ffffff;">Address</span><input type="text" name="address" class="form-control" placeholder="Address" required="" autofocus="">
     <label for="password" class="sr-only">Password</label>
-    Password<input type="password" name="password" id="password" class="form-control" placeholder="Password" required="" autofocus="">
+    <span style="color: #ffffff;">Password</span><input type="password" name="password" id="password" class="form-control" placeholder="Password" required="" autofocus="">
     <div class="custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="userType" value=0 name="userType">
-        <label class="custom-control-label" for="userType">System user &nbsp;(Unchangeable)</label>
+        <label class="custom-control-label" for="userType" style="color: #ffffff;" >System user &nbsp;(Unchangeable)</label>
     </div>
 
-    <div class="mb-3" style="display: inline">Already have an account?</div>
+    <div class="mb-3" style="display: inline;color: #ffffff" >Already have an account?</div>
     <div class="btn-link mb-3" style="display: inline">
         <label>
             <a href="Login.html">Login</a>
@@ -65,7 +65,7 @@
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="button" id="loginButton" onclick="signup()">Sign up</button>
 
-    <p class="mt-5 mb-3 text-muted">© 2018 By SilkRoad</p>
+    <p class="mt-5 mb-3 text-muted">2018 By SilkRoad</p>
 </form>
 
 </body>

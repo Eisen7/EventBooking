@@ -17,4 +17,8 @@
     select user_id, class_id, booking_date, flag
     from t_user_class_booking
   </select>
+  <delete id="delByClassId" parameterType="java.lang.Integer">
+    delete from t_user_class_booking where class_id = #{arg0,jdbcType=INTEGER}
+  </delete>
+
 </mapper>

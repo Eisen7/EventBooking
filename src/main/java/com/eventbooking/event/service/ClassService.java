@@ -64,6 +64,7 @@ public class ClassService {
     }
 
     public void delClass(Integer classId) {
+        tUserClassBookingMapper.delByClassId(classId);
         mapper.deleteByPrimaryKey(classId);
     }
 
